@@ -1,0 +1,24 @@
+<div class="cont">
+<input type="text" class="cont"
+name="name" required [(ngModel)]="name" minlength="4"  #nameF="ngModel">
+               
+<select id="location" required class="cont">
+				    <option *ngFor="let pow of location" [value]="pow">{{pow}}</option>
+	  			</select>
+<select id="tags" required class="cont">
+				    <option *ngFor="let pow of location" [value]="pow">{{pow}}</option>
+	  			</select>	  			
+</div>
+<div class="container">
+<div *ngFor="let pow of powers" >
+<div class="card" style="width:300px">
+  <img class="card-img-top" [src]="pow.cardImage" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">{{pow.name}}</h4>
+    <p class="card-text">{{pow.brief}}</p>
+    <p class="card-text">{{pow.city}}</p>
+
+  </div>
+</div>
+</div>
+</div>
