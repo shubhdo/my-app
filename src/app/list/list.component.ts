@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import {
+  ListService
+} from '../services/dataService'
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -7,10 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
-  location:[] = ["location1","location2"]
+  constructor(private listService: ListService) { }
+  location = ["location1","location2"]
   name="shubham"
-  powers:any = [{
+  powers = [{
   name:"shubham",
   cardImage:"https://pbs.twimg.com/profile_images/840431423442030592/GO-uH2qC_400x400.jpg",
   brief:"text"
@@ -27,6 +29,10 @@ export class ListComponent implements OnInit {
   }
   ]
   ngOnInit() {
+  this.listService.fetchList().subscribe(function (data) {
+  console.log(data)
+  })
+
   }
 
 }

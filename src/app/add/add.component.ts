@@ -9,7 +9,7 @@ export class AddComponent implements OnInit {
 
   constructor() { }
   obj:any = {}
-  powers:[] = ["location1"]
+  powers:[String] = ["location1"]
   afuConfig = {
     multiple: false,
     formatsAllowed: ".jpg,.png",
@@ -19,20 +19,18 @@ export class AddComponent implements OnInit {
     hideResetBtn: true,
     hideSelectBtn: true
 };
-
-  ngOnInit() {
-   this.dropdownList = [
+dropdownList = [
       { item_id: 1, item_text: 'Mumbai' },
       { item_id: 2, item_text: 'Bangaluru' },
       { item_id: 3, item_text: 'Pune' },
       { item_id: 4, item_text: 'Navsari' },
       { item_id: 5, item_text: 'New Delhi' }
     ];
-    this.selectedItems = [
+    selectedItems = [
       { item_id: 3, item_text: 'Pune' },
       { item_id: 4, item_text: 'Navsari' }
     ];
-    this.dropdownSettings = {
+    dropdownSettings = {
       singleSelection: false,
       idField: 'item_id',
       textField: 'item_text',
@@ -41,6 +39,9 @@ export class AddComponent implements OnInit {
       itemsShowLimit: 3,
       allowSearchFilter: true
     };
+
+
+  ngOnInit() {
   }
 
   onItemSelect (item:any) {
