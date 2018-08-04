@@ -10,28 +10,42 @@ import {
 export class ListComponent implements OnInit {
 
   constructor(private listService: ListService) { }
-  location = ["location1","location2"]
+  location = [];
+  tags = [];
+  loading=true;
   name="shubham"
-  powers = [{
-  name:"shubham",
-  cardImage:"https://pbs.twimg.com/profile_images/840431423442030592/GO-uH2qC_400x400.jpg",
-  brief:"text"
-  },
-  {
-  name:"shubham",
-  cardImage:"https://pbs.twimg.com/profile_images/840431423442030592/GO-uH2qC_400x400.jpg",
-  brief:"text"
-  },
-  {
-  name:"shubham",
-  cardImage:"https://pbs.twimg.com/profile_images/840431423442030592/GO-uH2qC_400x400.jpg",
-  brief:"text"
-  }
-  ]
+  powers: any = [];
+  // powers = [{
+  // name:"shubham",
+  // card:"https://specials-images.forbesimg.com/imageserve/593b2e4b31358e03e55a0e8c/416x416.jpg?background=000000&cropX1=634&cropX2=2468&cropY1=39&cropY2=1874",
+  // brief:"text"
+  // },
+  // {
+  // name:"shubham",
+  // card:"https://specials-images.forbesimg.com/imageserve/593b2e4b31358e03e55a0e8c/416x416.jpg?background=000000&cropX1=634&cropX2=2468&cropY1=39&cropY2=1874",
+  // brief:"text"
+  // },
+  // {
+  // name:"shubham",
+  // card:"https://specials-images.forbesimg.com/imageserve/593b2e4b31358e03e55a0e8c/416x416.jpg?background=000000&cropX1=634&cropX2=2468&cropY1=39&cropY2=1874",
+  // brief:"text"
+  // }
+  // ]
   ngOnInit() {
-  this.listService.fetchList().subscribe(function (data) {
-  console.log(data)
+  this.listService.fetchList().subscribe((data: any) =>{
+  this.powers = data;
+  this.loading = false;
+  console.log(this.powers,this.loading)
   })
+
+  this.listService.fetchLocation().subscribe((data: any) =>{
+    this.location = data;
+    console.log(this.location)
+    })
+    this.listService.fetchTags().subscribe((data: any) =>{
+      this.tags = data;
+      console.log(this.tags)
+      })
 
   }
 

@@ -4,6 +4,7 @@ import { FormsModule }   from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AngularFileUploaderModule } from "angular-file-uploader";
 import { HttpModule } from '@angular/http';
+import { CommonModule } from "@angular/common";
 
 import { RouterModule,Routes} from '@angular/router'
 import { AppComponent } from './app.component';
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
+    CommonModule,
     AngularFileUploaderModule,
     NgMultiSelectDropDownModule.forRoot(),
 

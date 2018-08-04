@@ -10,10 +10,29 @@ export class ListService {
     url:string="http://5.39.81.163:3000/";
 
   constructor(private http:Http) { }
-    fetchList(){			
+    fetchList(){
   	let headers = new Headers();
   	headers.append('Content-Type','application/json');
-  	return this.http.get(this.url+'api/contract/listed').pipe(map(res => res.json()));
+  	return this.http.get(this.url+'api/contract/all').pipe(map(res => res.json()));
   }
+
+  fetchLocation(){
+  	let headers = new Headers();
+  	headers.append('Content-Type','application/json');
+  	return this.http.get(this.url+'api/lists/public').pipe(map(res => res.json()));
+  }
+
+  fetchTags(){
+  	let headers = new Headers();
+  	headers.append('Content-Type','application/json');
+  	return this.http.get(this.url+'api/tags/public').pipe(map(res => res.json()));
+  }
+  fetchContractor(id) {
+    let headers = new Headers();
+  	headers.append('Content-Type','application/json');
+  	return this.http.get(this.url+'api/contract/'+id).pipe(map(res => res.json()));
+  }
+
+
 
 }
